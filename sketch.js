@@ -1,5 +1,5 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG,sky,clouds,grass,grass1,grassimg,grass2;
-var packageBody,ground
+var packageBody,ground,man1,manimg;
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -12,6 +12,9 @@ function preload()
 	sky=loadImage("cumulus-cloud.jpg");
 	grass=loadImage("grass.png")
 	grassimg=loadImage("grass2.png")
+	manimg=loadImage("man1.png")
+
+
 	
 	
 }
@@ -64,6 +67,10 @@ function setup() {
 	helicopterSprite=createSprite(width/2, 200, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
+	man1=createSprite(600,600, 10,10);
+	man1.addImage(manimg)
+
+	man1.scale=0.13
 
 	groundSprite=createSprite(width/2, height-35, width,30);
 	groundSprite.shapeColor=color(0,255,0)
@@ -96,10 +103,9 @@ function draw() {
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
   clouds.VelocityX=5;
- // if(clouds.x>400){
-//	  clouds.x=clouds.width/2
- // }
+  
   drawSprites();
+ 
  
 }
 
@@ -109,6 +115,8 @@ function keyPressed() {
     
   }
 }
+
+
 
 
 
