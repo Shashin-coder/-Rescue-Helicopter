@@ -1,4 +1,4 @@
-var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
+var helicopterIMG, helicopterSprite, packageSprite,packageIMG,sky,clouds,grass;
 var packageBody,ground
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -9,11 +9,15 @@ function preload()
 {
 	helicopterIMG=loadImage("helicopter.png")
 	packageIMG=loadImage("package.png")
+	sky=loadImage("cumulus-cloud.jpg");
+	grass=loadImage("grass-1.jpg")
 }
 
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
+ clouds=createSprite(400,350,800,700);
+	clouds.addImage(sky);
 	
 
 	packageSprite=createSprite(width/2, 80, 10,10);
@@ -24,9 +28,9 @@ function setup() {
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 
-	groundSprite=createSprite(width/2, height-35, width,10);
-	groundSprite.shapeColor=color(255)
-
+	groundSprite=createSprite(width/2, height-35, width,30);
+	groundSprite.shapeColor=color(0,255,0)
+	
 
 	engine = Engine.create();
 	world = engine.world;
